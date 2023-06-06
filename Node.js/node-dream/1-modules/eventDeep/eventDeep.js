@@ -15,3 +15,5 @@ Logger.makeHi(() => {
 Logger.makeGoodBy(() => {
     console.log('콜백함수 : 잘가~~~')
 })
+
+
