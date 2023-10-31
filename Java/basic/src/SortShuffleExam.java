@@ -13,9 +13,9 @@ public class SortShuffleExam {
 
         // 생성자 타입중 Comparable이라 불리는 타입을 가지고있는 객체만 정렬이 가능하다.
 
-//        for(int i = 0;  i < list.size(); i++){
-//            System.out.println(list.get(i));
-//        }
+        //        for(int i = 0;  i < list.size(); i++){
+        //            System.out.println(list.get(i));
+        //        }
 
         for (String i : list){
             System.out.println(i);
