@@ -1,4 +1,4 @@
-package EnumStudy;
+package Enum;
 
 // enum 도 생성자를 가질수 있다.
 // enum 도 메소드나 변수를 가질수 있다.

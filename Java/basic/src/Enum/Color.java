@@ -1,4 +1,4 @@
-package EnumStudy;
+package Enum;
 
 // enum 은 interface를 받을수도 있다.
 public enum Color implements Printer {

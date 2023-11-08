@@ -1,4 +1,4 @@
-package EnumStudy;
+package Enum;
 
 public class GenderTest {
 	public static void main(String[] args) {
