@@ -5,6 +5,8 @@ import com.fastcampus.programing.dmaker.entity.Developer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /*
 * DeveloperRepository
 * - developer 엔티티를 통해 생성된 데이터를 H2데이터베이스에 넣는역할
@@ -15,4 +17,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DeveloperRepository
         extends JpaRepository<Developer, Long> {
+    Optional<Developer> findByMemberId(String memberId); // -> JPA에서 특정 컬럼명을 매개변수로 DB에서 값을 탐색하는 메서드를 만들수 있다.
 }
