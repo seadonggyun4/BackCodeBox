@@ -1,0 +1,3 @@
+### GET request with json body
+GET http://localhost:8080/developers
+Accept: application/json

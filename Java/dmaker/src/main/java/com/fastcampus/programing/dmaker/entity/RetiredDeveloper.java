@@ -2,7 +2,6 @@ package com.fastcampus.programing.dmaker.entity;
 
 import com.fastcampus.programing.dmaker.type.DeveloperLevel;
 import com.fastcampus.programing.dmaker.type.DeveloperSkillType;
-import com.fastcampus.programing.dmaker.code.StatusCode;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -25,26 +24,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity // -> Entity 선언
 @EntityListeners(AuditingEntityListener.class)// auditing기능을 위한 어노테이션
-public class Developer {
+public class RetiredDeveloper {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected  Long id;
 
-    @Enumerated(EnumType.STRING)
-    private DeveloperLevel developerLevel;
-
-
-    @Enumerated(EnumType.STRING)
-    private DeveloperSkillType developerSkillType;
-
-
-    private Integer experienceYears;
     private String memberId;
     private String name;
-    private Integer age;
-
-    @Enumerated(EnumType.STRING)
-    private StatusCode statusCode;
 
     @CreatedDate // -> 자동으로 데이터 처음 세팅된 시간 기록
     private LocalDateTime createdAt;

@@ -1,10 +1,12 @@
 package com.fastcampus.programing.dmaker.repository;
 
 
+import com.fastcampus.programing.dmaker.code.StatusCode;
 import com.fastcampus.programing.dmaker.entity.Developer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 /*
@@ -18,4 +20,6 @@ import java.util.Optional;
 public interface DeveloperRepository
         extends JpaRepository<Developer, Long> {
     Optional<Developer> findByMemberId(String memberId); // -> JPA에서 특정 컬럼명을 매개변수로 DB에서 값을 탐색하는 메서드를 만들수 있다.
+
+    List<Developer> findDevelopersByStatusCodeEquals(StatusCode statusCode);
 }
