@@ -12,7 +12,8 @@ import com.fastcampus.programing.dmaker.exception.DMakerException;
 import com.fastcampus.programing.dmaker.repository.DeveloperRepository;
 import com.fastcampus.programing.dmaker.repository.RetiredDeveloperRepository;
 import com.fastcampus.programing.dmaker.type.DeveloperLevel;
-import jakarta.transaction.Transactional;
+import lombok.NonNull;
+import org.springframework.transaction.annotation.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -88,6 +89,7 @@ public class DMakerService {
     }
 
     // [ 디벨로퍼 리스트 출력 ]
+    @Transactional(readOnly = true)
     public List<DeveloperDto> getAllEmployedDevelopers() {
         return developerRepository.findDevelopersByStatusCodeEquals(StatusCode.EMPLOYED)
                 .stream()// 데이터가 많을수 있으니 stream데이터로 꺼내온다
@@ -96,6 +98,7 @@ public class DMakerService {
     }
 
     // [ 디벨로퍼 한개 디테일 출력 ]
+    @Transactional(readOnly = true)
     public DeveloperDetailDto getDeveloperDetail(String memberId) {
         return developerRepository.findByMemberId(memberId)
                 .map(DeveloperDetailDto::fromEntity) // 꺼내온 Developer 엔티티 데이터를 DeveloperDetailDto에 넣고 반환값을 만든다.
@@ -143,7 +146,7 @@ public class DMakerService {
 
     // ============================================================ request business validation ============================================================
     // developer create validation
-    private void validateCreateDeveloperRequest(CreateDeveloper.Request request) {
+    private void validateCreateDeveloperRequest(@NonNull CreateDeveloper.Request request) {
         validateDeveloper(request.getDeveloperLevel(), request.getExperienceYears());
 
         // 멤버 아이디 존재여부 검사

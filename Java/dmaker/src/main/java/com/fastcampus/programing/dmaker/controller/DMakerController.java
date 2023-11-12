@@ -39,7 +39,7 @@ public class DMakerController {
 
     @GetMapping("/developer/{memberId}") // -> HTTP GET요청 매핑
     public DeveloperDetailDto getDeveloperDetail(
-            @PathVariable String memberId
+            @PathVariable final String memberId
     ) {
         log.info("GET /developer/{memberId} HTTP/1.1");
 
@@ -51,7 +51,7 @@ public class DMakerController {
     public CreateDeveloper.Response createDevelopers(
             @Valid // -> @Valid어노테이션을 통해 CreatteDeveloper내무에 선언한 @Min, @Max 와 같은 validation 어노테이션이 동작한다.
             @RequestBody // -> HTTP스팩의 json을 담는다.
-            CreateDeveloper.Request request
+            final CreateDeveloper.Request  request
             ) {
         log.info("request: {}", request);
 
@@ -62,10 +62,10 @@ public class DMakerController {
     // developers 수정 API =============================================
     @PutMapping("/developer/{memberId}") // -> HTTP PUT요청 매핑
     public DeveloperDetailDto editDeveloper(
-            @PathVariable String memberId,
+            @PathVariable final String memberId,
             @Valid
             @RequestBody
-            EditDeveloper.Request request
+            final EditDeveloper.Request request
     ) {
         log.info("PUT //developer/{memberId} HTTP/1.1");
 
@@ -76,7 +76,7 @@ public class DMakerController {
     // developers 삭제 API =============================================
     @DeleteMapping("/developer/{memberId}") // -> HTTP DELETE요청 매핑
     public DeveloperDetailDto deleteDeveloper(
-            @PathVariable String memberId
+            @PathVariable final String memberId
     ) {
         log.info("DELETE /developer/{memberId} HTTP/1.1");
 
