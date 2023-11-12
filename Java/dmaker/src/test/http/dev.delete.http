@@ -1,3 +1,0 @@
-### DELETE request with json body
-DELETE http://localhost:8080/developer/Micky
-Accept: application/json
